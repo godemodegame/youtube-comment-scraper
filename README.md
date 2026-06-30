@@ -30,9 +30,42 @@ Neither uses the official YouTube Data API or needs a key.
 
 ## Install
 
-No build step. Clone/copy the folder and run the script:
+### As a Claude Code skill (recommended)
+
+Clone the repo into your Claude skills directory — the folder name **must** be
+the skill name:
 
 ```bash
+git clone https://github.com/godemodegame/youtube-comment-scraper.git \
+  ~/.claude/skills/youtube-comment-scraper
+```
+
+Restart Claude Code so it picks up the new skill. Then just ask in plain
+language — *"scrape the youtube comments from `<url>`"*, *"download youtube
+comments without the api"* — or invoke it directly with
+`/youtube-comment-scraper`. Claude reads [`SKILL.md`](SKILL.md) and runs the
+bundled script for you.
+
+To install for a **single project** instead of globally, clone into that
+project's skills directory:
+
+```bash
+git clone https://github.com/godemodegame/youtube-comment-scraper.git \
+  <your-project>/.claude/skills/youtube-comment-scraper
+```
+
+Update later with `git -C ~/.claude/skills/youtube-comment-scraper pull`.
+
+> Requires Python 3.8+ (standard library only). `yt-dlp` is optional but
+> recommended — see [Requirements](#requirements).
+
+### As a plain CLI (any tool / no Claude)
+
+No build step — clone anywhere and run the script:
+
+```bash
+git clone https://github.com/godemodegame/youtube-comment-scraper.git
+cd youtube-comment-scraper
 python3 scripts/scrape_comments.py <video-url-or-id>
 ```
 
